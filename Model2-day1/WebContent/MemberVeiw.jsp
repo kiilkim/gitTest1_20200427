@@ -8,7 +8,7 @@ i<%@ page language="java" contentType="text/html; charset=EUC-KR"
 </head>
 <body>
 
-당신의 아이디는 ${bean.id } 패스워드는 ${bean.password }d
+당신의 아이디는 ${bean.id } 패스워드는 ${bean.password }
 
 </body>
 </html>
