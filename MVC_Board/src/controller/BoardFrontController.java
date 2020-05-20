@@ -16,6 +16,7 @@ import vo.ActionForward;
 
 @WebServlet("*.bo") // 서블릿 주소 중 XXX.bo 주소에 대한 요청을 전달받음
 public class BoardFrontController extends HttpServlet {
+	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// POST 방식 한글 처리
 		request.setCharacterEncoding("UTF-8");

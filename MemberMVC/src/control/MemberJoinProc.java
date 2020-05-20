@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import member.MemberBean;
+import control.MemberDAO;
 
 /**
  * Servlet implementation class MemberJoinProc
  */
-@WebServlet("/proc")
+@WebServlet("/proc.do")
 public class MemberJoinProc extends HttpServlet {
 	
 
@@ -35,6 +36,8 @@ public class MemberJoinProc extends HttpServlet {
 	
 	protected void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//한글처리
+		request.setCharacterEncoding("EUC-KR");
 		
 		MemberBean bean = new MemberBean();
 		bean.setId(request.getParameter("id"));
@@ -44,16 +47,20 @@ public class MemberJoinProc extends HttpServlet {
 		
 		bean.setPass1(pass1);
 		bean.setPass2(pass2);
+		//
+		
 		bean.setEmail(request.getParameter("email"));
 		
 		bean.setTel(request.getParameter("tel"));
 		
-		String [] arr = request.getParameterValues("hobby");
+		String [] arr = request.getParameterValues("hobby"); //배열로받아오기
+		
+		
 		String data ="";
 		
 			for (String string : arr) {
 				
-				data+=string+" ";
+				data+=string+" "; //하나의 스트링으로 데이터 연결
 			}
 		
 		
@@ -68,7 +75,7 @@ public class MemberJoinProc extends HttpServlet {
 		if(pass1 == pass2) {
 			
 			//데이터베이스 객체생성
-			memberDAO mdao = new MemberDAO();
+			MemberDAO mdao = new MemberDAO();
 			mdao.insertMember(bean);
 			RequestDispatcher dis = request.getRequestDispatcher("MemberList.jsp");
 			dis.forward(request, response);
