@@ -8,10 +8,14 @@ public class MemberBean {
 	private String pass;
 	private int age;
 	private String email;
-	private String gender;
+	private char gender;
 	
 	
 	
+	public MemberBean(String parameter, String parameter2, String parameter3, int parseInt, String parameter4,
+			char charAt) {
+		// TODO Auto-generated constructor stub
+	}
 	public String getName() {
 		return name;
 	}
@@ -42,10 +46,10 @@ public class MemberBean {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getGender() {
+	public char getGender() {
 		return gender;
 	}
-	public void setGender(String gender) {
+	public void setGender(char gender) {
 		this.gender = gender;
 	}
 }

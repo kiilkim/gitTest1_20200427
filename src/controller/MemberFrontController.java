@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.MemberJoinProAction;
 import action.MemberLoginProAction;
 import action.MemberLogoutAction;
 import vo.ActionForward;
@@ -82,7 +83,22 @@ public class MemberFrontController  extends HttpServlet {
 			}
 			
 			
-		} else if(command.equals("/MemberLogout.me")) {
+		} else if(command.equals("/MemberJoinPro.me")) {
+			
+			action = new MemberJoinProAction();
+			
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		
+		
+		else if(command.equals("/MemberLogout.me")) {
 			
 			action = new MemberLogoutAction();
 			

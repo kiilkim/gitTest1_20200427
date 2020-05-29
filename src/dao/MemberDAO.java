@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import vo.MemberBean;
 import vo.LoginException;
 
 
@@ -12,7 +13,7 @@ import vo.LoginException;
 public class MemberDAO {
 	
 	
-	private MemberDAO() {}
+	public MemberDAO() {}
 	
 	private static MemberDAO instance = new MemberDAO();
 
@@ -28,8 +29,44 @@ public class MemberDAO {
 		this.con = con;
 	}
 	
+	public int insertMember(MemberBean member) {
+		
+		boolean loginResult = false;
+		
+		Connection con = null;	
+		PreparedStatement pstmt = null;
+		
+		int insertCount = 0;
+	
+		try {
+			String sql = "INSERT INTO member VALUES (?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getId());
+			pstmt.setString(3, member.getPass());
+			pstmt.setInt(4, member.getAge());
+			pstmt.setString(5, member.getEmail());
+			pstmt.setString(6, member.getGender() + "");
+			
+			insertCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return insertCount;
+	}
+// insertMember()
+	
+	
 
 
+
+	private Connection getConnection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	public boolean selectLoginMember(String id, String pass) throws LoginException {
 		// TODO Auto-generated method stub

@@ -62,11 +62,23 @@ h2 {
 				
 			</tr>
 			
+			
+			
 			<tr height="50">
 			
-				<td width="150" align="center">이메일</td>
+				<td width="150" align="center">나이</td>
 				<td width="150" align="center">
-					<input type="email" name="email" size="40" >
+					<input type="text" name="age" size="40" >
+				</td>
+				
+			</tr>
+			
+			<tr height="50">
+			
+				<td width="150" align="center">성별</td>
+				<td width="150" align="center">
+					<input type="radio" value="남">남
+					<input type="radio" value="여">여
 				</td>
 				
 			</tr>
@@ -74,9 +86,9 @@ h2 {
 			
 			<tr height="50">
 			
-				<td width="150" align="center">성별</td>
+				<td width="150" align="center">이메일</td>
 				<td width="150" align="center">
-					<input type="text" name="gender" size="40" >
+					<input type="email" name="email" size="40" >
 				</td>
 				
 			</tr>
